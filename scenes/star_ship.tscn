@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://2j5cnuovuiho"]
+
+[ext_resource type="Script" path="res://scenes/star_ship.gd" id="1_ijg85"]
+[ext_resource type="Texture2D" uid="uid://bngiwd5sv0al2" path="res://ASSETS/sprites/PNG/cohete/starShip_1.png" id="1_yq47g"]
+[ext_resource type="Texture2D" uid="uid://dqes27514ym5r" path="res://ASSETS/sprites/PNG/cohete/starShip_2.png" id="2_mlhpi"]
+[ext_resource type="Texture2D" uid="uid://ieelttgpe7dk" path="res://ASSETS/sprites/PNG/cohete/starShip_3.png" id="3_d4xre"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qm20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yq47g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mlhpi")
+}],
+"loop": true,
+"name": &"fiun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d4xre")
+}],
+"loop": true,
+"name": &"statik",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m40gg"]
+radius = 96.0
+height = 448.0
+
+[node name="star_ship" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_ijg85")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3qm20")
+animation = &"fiun"
+autoplay = "fiun"
+frame_progress = 0.179518
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -144)
+shape = SubResource("CapsuleShape2D_m40gg")

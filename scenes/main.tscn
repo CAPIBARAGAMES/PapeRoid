@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://don6gy7bw3eit"]
+
+[ext_resource type="Texture2D" uid="uid://dvyd6t44oumny" path="res://ASSETS/sprites/PNG/libreta.png" id="1_wrbno"]
+[ext_resource type="PackedScene" uid="uid://2j5cnuovuiho" path="res://scenes/star_ship.tscn" id="2_pxehn"]
+
+[node name="main" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 544)
+texture = ExtResource("1_wrbno")
+
+[node name="star_ship" parent="." instance=ExtResource("2_pxehn")]
+position = Vector2(792, 664)
