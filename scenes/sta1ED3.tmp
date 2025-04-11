@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://2j5cnuovuiho"]
+[gd_scene load_steps=7 format=3 uid="uid://2j5cnuovuiho"]
 
 [ext_resource type="Script" path="res://scenes/star_ship.gd" id="1_ijg85"]
 [ext_resource type="Texture2D" uid="uid://bngiwd5sv0al2" path="res://ASSETS/sprites/PNG/cohete/starShip_1.png" id="1_yq47g"]
 [ext_resource type="Texture2D" uid="uid://dqes27514ym5r" path="res://ASSETS/sprites/PNG/cohete/starShip_2.png" id="2_mlhpi"]
 [ext_resource type="Texture2D" uid="uid://ieelttgpe7dk" path="res://ASSETS/sprites/PNG/cohete/starShip_3.png" id="3_d4xre"]
-[ext_resource type="Texture2D" uid="uid://dad66btivfwq3" path="res://ASSETS/sprites/PNG/cohete/starShip_4.png" id="5_v7we4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3qm20"]
 animations = [{
@@ -22,9 +21,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_d4xre")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_v7we4")
 }],
 "loop": true,
 "name": &"statik",
@@ -44,13 +40,11 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_3qm20")
 animation = &"statik"
 autoplay = "statik"
-frame_progress = 0.971025
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -144)
 shape = SubResource("CapsuleShape2D_m40gg")
 
 [node name="Timer" type="Timer" parent="."]
-process_callback = 0
 wait_time = 1.5
 one_shot = true

@@ -1,6 +1,6 @@
 extends Node
 
-var speed = 600
+var speed = 200
 var angular_speed = PI
 var life = 3
 
