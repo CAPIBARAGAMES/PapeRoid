@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0cr6o8sbw4hy"]
+
+[ext_resource type="Texture2D" uid="uid://cyqqylx5dsvh0" path="res://ASSETS/sprites/PNG/asteroids_1.png" id="1_cfv5w"]
+
+[node name="asteroid_1" type="Sprite2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_cfv5w")

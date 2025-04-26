@@ -1,28 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://don6gy7bw3eit"]
+[gd_scene load_steps=4 format=3 uid="uid://don6gy7bw3eit"]
 
 [ext_resource type="Texture2D" uid="uid://dvyd6t44oumny" path="res://ASSETS/sprites/PNG/libreta.png" id="1_wrbno"]
 [ext_resource type="PackedScene" uid="uid://2j5cnuovuiho" path="res://scenes/star_ship.tscn" id="2_pxehn"]
-[ext_resource type="Texture2D" uid="uid://cyqqylx5dsvh0" path="res://ASSETS/sprites/PNG/asteroids_1.png" id="3_lfpim"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dcc6p"]
-radius = 240.0
+[ext_resource type="PackedScene" uid="uid://d0cr6o8sbw4hy" path="res://scenes/asteroid_1.tscn" id="3_44rbv"]
 
 [node name="main" type="Node"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 544)
+position = Vector2(640, 361)
+scale = Vector2(0.716667, 0.67963)
 texture = ExtResource("1_wrbno")
 
 [node name="star_ship" parent="." instance=ExtResource("2_pxehn")]
-position = Vector2(792, 664)
+position = Vector2(640, 400)
 
-[node name="Asteroids1" type="Sprite2D" parent="."]
-position = Vector2(480, 552)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_lfpim")
+[node name="asteroid_1" parent="." instance=ExtResource("3_44rbv")]
+position = Vector2(400, 384)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Asteroids1"]
-scale = Vector2(1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroids1/RigidBody2D"]
-shape = SubResource("CircleShape2D_dcc6p")
+[node name="Label" type="Label" parent="."]
+offset_right = 200.0
+offset_bottom = 64.0
+text = "live"
+vertical_alignment = 1

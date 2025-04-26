@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://2j5cnuovuiho"]
+[gd_scene load_steps=10 format=3 uid="uid://2j5cnuovuiho"]
 
-[ext_resource type="Script" path="res://scenes/star_ship.gd" id="1_ijg85"]
+[ext_resource type="Script" path="res://script/star_ship.gd" id="1_ijg85"]
 [ext_resource type="Texture2D" uid="uid://bngiwd5sv0al2" path="res://ASSETS/sprites/PNG/cohete/starShip_1.png" id="1_yq47g"]
 [ext_resource type="Texture2D" uid="uid://dqes27514ym5r" path="res://ASSETS/sprites/PNG/cohete/starShip_2.png" id="2_mlhpi"]
 [ext_resource type="Texture2D" uid="uid://ieelttgpe7dk" path="res://ASSETS/sprites/PNG/cohete/starShip_3.png" id="3_d4xre"]
 [ext_resource type="Texture2D" uid="uid://dad66btivfwq3" path="res://ASSETS/sprites/PNG/cohete/starShip_4.png" id="5_v7we4"]
+[ext_resource type="Texture2D" uid="uid://bxh8w6kay7t83" path="res://ASSETS/sprites/PNG/cohete/point_shot.png" id="6_jlkes"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3qm20"]
 animations = [{
@@ -35,8 +36,11 @@ animations = [{
 radius = 96.0
 height = 448.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlgl2"]
+size = Vector2(405, 13600)
+
 [node name="star_ship" type="CharacterBody2D"]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_ijg85")
 metadata/_edit_group_ = true
 
@@ -54,3 +58,16 @@ shape = SubResource("CapsuleShape2D_m40gg")
 process_callback = 0
 wait_time = 1.5
 one_shot = true
+
+[node name="PointShot" type="Sprite2D" parent="."]
+position = Vector2(0, -1920)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_jlkes")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="PointShot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointShot/Area2D"]
+position = Vector2(2.49999, -2800)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jlgl2")

@@ -1,20 +1,22 @@
 extends CharacterBody2D
-
-var velocidad_inicial: float = 400
-var velocidad_maxima: float = 600
-var aceleracion: float = 200       # velocidad por segundo al acelerar
-var desaceleracion: float = 200   # velocidad por segundo al soltar el botón
-var velocidad_actual: float = 0
-
+# Variables asosiadas al singleton 
+var velocidad_inicial = Global.velocidad_inicial
+var velocidad_maxima = Global.velocidad_maxima
+var aceleracion = Global.aceleracion       # velocidad por segundo al acelerar
+var desaceleracion = Global.aceleracion# velocidad por segundo al soltar el botón
+var velocidad_actual = Global.velocidad_actual
 var angular_speed: float = Global.angular_speed * 1.5
 
+
+
+
 func _process(delta):
+	#Controlando la direccion de la nave
 	var direction := 0
 	if Input.is_action_pressed("ui_left"):
 		direction = -1
 	elif Input.is_action_pressed("ui_right"):
 		direction = 1
-
 	rotation += angular_speed * direction * delta
 
 	var velocity := Vector2.ZERO
