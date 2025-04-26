@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://don6gy7bw3eit"]
+[gd_scene load_steps=6 format=3 uid="uid://don6gy7bw3eit"]
 
 [ext_resource type="Texture2D" uid="uid://dvyd6t44oumny" path="res://ASSETS/sprites/PNG/libreta.png" id="1_wrbno"]
 [ext_resource type="PackedScene" uid="uid://2j5cnuovuiho" path="res://scenes/star_ship.tscn" id="2_pxehn"]
 [ext_resource type="PackedScene" uid="uid://d0cr6o8sbw4hy" path="res://scenes/asteroid_1.tscn" id="3_44rbv"]
+[ext_resource type="Script" path="res://scenes/barlive.gd" id="4_wq1uj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qf678"]
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
 
 [node name="main" type="Node"]
 
@@ -17,8 +23,15 @@ position = Vector2(640, 400)
 [node name="asteroid_1" parent="." instance=ExtResource("3_44rbv")]
 position = Vector2(400, 384)
 
-[node name="Label" type="Label" parent="."]
-offset_right = 200.0
-offset_bottom = 64.0
-text = "live"
-vertical_alignment = 1
+[node name="bar_live" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 24.0
+offset_top = 72.0
+offset_right = -1056.0
+offset_bottom = -557.08
+text = "live: "
+label_settings = SubResource("LabelSettings_qf678")
+script = ExtResource("4_wq1uj")
