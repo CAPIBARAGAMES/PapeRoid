@@ -30,6 +30,11 @@ settings/stdout/print_fps=true
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[global_group]
+
+asteroid=""
+bullet=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

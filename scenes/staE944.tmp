@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://script/star_ship.gd" id="1_ijg85"]
 [ext_resource type="Texture2D" uid="uid://bngiwd5sv0al2" path="res://ASSETS/sprites/PNG/cohete/starShip_1.png" id="1_yq47g"]
 [ext_resource type="Texture2D" uid="uid://dqes27514ym5r" path="res://ASSETS/sprites/PNG/cohete/starShip_2.png" id="2_mlhpi"]
-[ext_resource type="PackedScene" uid="uid://b5vib50qmw2dw" path="res://scenes/bullet.tscn" id="2_owe2o"]
 [ext_resource type="Texture2D" uid="uid://ieelttgpe7dk" path="res://ASSETS/sprites/PNG/cohete/starShip_3.png" id="3_d4xre"]
 [ext_resource type="Texture2D" uid="uid://dad66btivfwq3" path="res://ASSETS/sprites/PNG/cohete/starShip_4.png" id="5_v7we4"]
+[ext_resource type="Texture2D" uid="uid://bxh8w6kay7t83" path="res://ASSETS/sprites/PNG/cohete/point_shot.png" id="6_jlkes"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3qm20"]
 animations = [{
@@ -36,16 +36,14 @@ animations = [{
 radius = 96.0
 height = 448.0
 
-[sub_resource type="Gradient" id="Gradient_lcokt"]
-colors = PackedColorArray(0.843137, 0.705882, 0, 1, 0.843137, 0.372549, 0, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlgl2"]
 size = Vector2(404.391, 8800.08)
 
+[sub_resource type="Gradient" id="Gradient_lcokt"]
+colors = PackedColorArray(0.843137, 0.705882, 0, 1, 0.843137, 0.372549, 0, 1)
+
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_ijg85")
-bullet_scene = ExtResource("2_owe2o")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 0.000135078
@@ -66,34 +64,27 @@ process_callback = 0
 wait_time = 1.5
 one_shot = true
 
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
-modulate = Color(0.99372, 0.914039, 0.851744, 1)
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasGroup"]
-position = Vector2(0, 29)
-scale = Vector2(4, 4)
-lifetime = 0.8
-spread = 30.0
-gravity = Vector2(0, 100)
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-split_scale = true
-scale_curve_x = null
-scale_curve_y = null
-color_initial_ramp = SubResource("Gradient_lcokt")
-
-[node name="fire_zone" type="Area2D" parent="."]
+[node name="PointShot" type="Sprite2D" parent="."]
 position = Vector2(-9.98378e-07, -385)
 rotation = 0.000135078
 scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_jlkes")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="fire_zone"]
+[node name="Area2D" type="Area2D" parent="PointShot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointShot/Area2D"]
 position = Vector2(-1.00347, 4224.96)
 shape = SubResource("RectangleShape2D_jlgl2")
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-2.27374e-13, -40)
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasGroup"]
+position = Vector2(0, 16)
+emitting = false
+lifetime_randomness = 0.25
+local_coords = true
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_initial_ramp = SubResource("Gradient_lcokt")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_entered" from="fire_zone" to="." method="_on_fire_zone_area_entered"]
-[connection signal="area_exited" from="fire_zone" to="." method="_on_fire_zone_area_exited"]

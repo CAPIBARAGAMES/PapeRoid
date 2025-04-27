@@ -1,16 +1,59 @@
-[gd_scene load_steps=6 format=3 uid="uid://don6gy7bw3eit"]
+[gd_scene load_steps=7 format=3 uid="uid://don6gy7bw3eit"]
 
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_sop4d"]
 [ext_resource type="Texture2D" uid="uid://dvyd6t44oumny" path="res://ASSETS/sprites/PNG/libreta.png" id="1_wrbno"]
 [ext_resource type="PackedScene" uid="uid://2j5cnuovuiho" path="res://scenes/star_ship.tscn" id="2_pxehn"]
 [ext_resource type="PackedScene" uid="uid://d0cr6o8sbw4hy" path="res://scenes/asteroid_1.tscn" id="3_44rbv"]
-[ext_resource type="Script" path="res://scenes/barlive.gd" id="4_wq1uj"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_qf678"]
-font_size = 60
-font_color = Color(0, 0, 0, 1)
-outline_size = 1
+[sub_resource type="FontFile" id="FontFile_l68qh"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_x5a3e"]
+font = SubResource("FontFile_l68qh")
+font_size = 48
+font_color = Color(1.29351e-07, 0, 0.157023, 1)
 
 [node name="main" type="Node"]
+script = ExtResource("1_sop4d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 361)
@@ -23,15 +66,23 @@ position = Vector2(640, 400)
 [node name="asteroid_1" parent="." instance=ExtResource("3_44rbv")]
 position = Vector2(400, 384)
 
-[node name="bar_live" type="Label" parent="."]
-unique_name_in_owner = true
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.194
+anchor_bottom = 0.222
+offset_right = 1031.68
+offset_bottom = 560.16
+
+[node name="punts_life" type="Label" parent="Control"]
+layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.989
-offset_left = 24.0
-offset_top = 72.0
-offset_right = -1056.0
-offset_bottom = -557.08
-text = "live: "
-label_settings = SubResource("LabelSettings_qf678")
-script = ExtResource("4_wq1uj")
+anchor_top = 0.394
+anchor_right = 0.194
+anchor_bottom = 0.589
+offset_left = 32.0
+offset_top = -195.68
+offset_right = 55.68
+offset_bottom = -271.08
+grow_vertical = 2
+text = "LP:"
+label_settings = SubResource("LabelSettings_x5a3e")
